@@ -14,7 +14,9 @@
     "fontsource-roboto": "^2.1.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-dropdown-select": "^4.4.2",
     "react-scripts": "3.4.1",
+    "react-star-rating-component": "^1.4.1",
     "react-toggle-component": "^3.0.8"
   },
   "scripts": {

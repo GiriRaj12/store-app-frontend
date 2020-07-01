@@ -8,7 +8,7 @@ import './styels/login.css'
 class App extends React.Component {
   state = {
     isLoggedIn: false,
-    isAdmin: false,
+    user: {},
     useremail: "",
     password: "",
     emailInput: false,
@@ -17,10 +17,6 @@ class App extends React.Component {
     loading: false
   }
 
-  toggle() {
-    console.log("toggle");
-    this.setState({ isAdmin: !this.state.isAdmin });
-  }
 
   loginButton = () => {
     if (!this.state.useremail) {
@@ -43,6 +39,7 @@ class App extends React.Component {
   loginUser(userEmail, password, admin) {
     console.log(userEmail + "," + password);
     this.setState({ loading: true });
+    
     let userObj = {
       userName: userEmail,
       passWord: password,
@@ -54,15 +51,17 @@ class App extends React.Component {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userObj)
     }
-    fetch("https://nameless-wildwood-21485.herokuapp.com",headder)
+
+    fetch("http://localhost:8081/login",headder)
     .then(res => res.json())
     .then(res =>{
         this.setState({loading: false});
         console.log(res);
         if(res.response){
             console.log("into respoonse if");
+            console.log(res.datas[0]);
+            this.setState({user:res.datas[0]});
             this.setState({isLoggedIn:true});
-            this.render();
         }
         else{
             this.setState({displayText:res.message});
@@ -102,7 +101,7 @@ class App extends React.Component {
     const loadingStyle = { display: this.state.loading ? '' : 'none', height: '40px' }
 
     if (this.state.isLoggedIn) {
-      return <Stores loggedIn={this.state.isLoggedIn} userName={this.state.userName}></Stores>
+      return <Stores user={this.state.user}></Stores>
     }
     else {
       return (
@@ -116,11 +115,6 @@ class App extends React.Component {
             <input style={passwordStyle} id="inputText" placeholder="Password" type="password" onChange={e => this.changePassword(e)} />
             <br></br>
             <button id="inButton" onClick={this.loginButton}>Log in</button>
-            <p style={{ color: 'white' }}>Admin Toggle here 
-            <Switch
-              checked={this.state.isAdmin} 
-              onChange={e => this.toggle()}
-            ></Switch></p>
             <p style={{ color: 'white' }}>{this.state.displayText}</p>
             <img src="https://i.ya-webdesign.com/images/loading-png-gif.gif"
               style={loadingStyle}

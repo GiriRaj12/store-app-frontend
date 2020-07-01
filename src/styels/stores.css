@@ -15,13 +15,15 @@
     background-color: white;
 }
 
-.questionsHolder, .settingsContainer{
-    margin-left: 50px;
-    overflow: scroll;
+.storesHolder {
     margin-top: 20px;
+    margin-left: 200px;
+    display: grid;
+    grid-template-columns: auto auto auto;
 }
 
 .sideBar{
+    padding: 25px;
     position: fixed;
     height: 800px;
     text-align: center;
@@ -30,42 +32,133 @@
     z-index: 1;
 }
 
-
-.appsContainer{
-    border-radius: 10px;
-    margin-top: 20px;
-    height: 240px;
-    margin-left: 80px;
-    width: 90%;
-    background-color: rgb(226, 226, 226);
-    box-shadow: 0 0 0 0.5;
-    overflow: hidden;
-}
-
 .iconDisplay{
     margin-top: 30px;
     cursor: pointer;
     color: white;
 }
+
 .iconDisplay :hover{
         color: rgb(67, 100, 76);
 }
+
 .sideBarSelector{
     display: none;
 }
 
 .AddContainer{
-    width: 60%;
     box-shadow: 0 0 1 0.5;
     margin-left: 200px;
+    display: inline;
 }
 
+.storesLifter{
+    margin-top: 80px;
+    overflow:'scroll';
+}
+
+.storesContainer{
+    width: 320px;
+    height: 280px;
+    box-shadow: 0 0 1 0.5;
+    border-radius: 4px;
+    background-color: rgb(161, 161, 161);
+    text-align: left;
+}
+
+.sotoreName{
+    padding: 10px;
+    margin: 20px;
+    font-size: 20px;
+    color: white;
+}
+
+.sotoreAddress{
+    margin: 20px;
+    font-size: 15px;
+}
+
+.sotoreCategory{
+    margin-left: 20px;
+    font-size: 15px;
+}
+
+.storeIcon{
+    font-size: 15px;
+    margin-left: 20px;
+    margin-top: 20px;
+    color: white;
+}
+
+.sotoreCategory,.storeIcon{
+    display: inline;   
+}
+
+.storeLocation{
+    color: white;
+    margin-top:20px;
+    margin-left: 20px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.editIcon{
+    float: right;
+    font-size: 25px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 1;
+    background-color: rgba(0,0,0, 0.5);
+}
+  .popup_inner {
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    top: 25%;
+    bottom: 25%;
+    margin: auto;
+    z-index: 1;
+    background: white;
+  }
+
+  .popup_Input{
+      margin-top: 10px;
+     border: 0.3;
+    text-align: center;
+     width: 90%;
+     padding: 10px;
+     border-radius: 3px;
+    }
+
+    .popup_Button{
+        margin: 10px;
+      border: none;
+      padding: 10px;
+      width: 120px;
+    }
+
+    .addDisplayElement{
+        margin-left: 40px;
+        text-align: center;
+    }
+
+
 .addInputType{
-    display: block;
-    border: none;
+    text-align: center;
+    border: 0.2;
     padding: 10px;
     width: 60%;
-    margin-left: 140px;
     background-color: white;
     color: grey;
     margin-top: 25px;
@@ -80,6 +173,21 @@
     color: white;
     margin-top: 25px;
     border-radius: 25px;
+}
+
+.filterContainer{
+    width: 200px;
+    height: 100px;
+    margin-bottom: 10px;
+    margin-top: 200px;
+    margin-left: 400px;
+    display: block;
+}
+
+.starComponent{
+    margin-top: 20px;
+    font-size: 20px;
+    display: block;
 }
 
 @media screen and (max-width:800px){
